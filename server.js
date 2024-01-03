@@ -4,7 +4,8 @@ const cors = require('cors')
 
 const errorHandler = require('./middleware/errorHandler.js');
 
-const dotenv = require("dotenv").config();
+
+const dotenv = require("dotenv").config({ path: `.env.${process.env.NODE_ENV}` });
 
 const app = express();
 const path = require("path");

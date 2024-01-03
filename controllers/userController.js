@@ -1,10 +1,11 @@
 
 // get user 
 const axios = require('axios');
+require('dotenv').config();
 
-const shopifyStoreUrl = 'hexa-test-store.myshopify.com';
+const shopifyStoreUrl = process.env.SHOPIFY_STORE_URL
 
-const accessToken = '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'
+const accessToken = process.env.SHOPIFY_ACCESS_TOKEN
 
 const getShopifyProduct = async () => {
     let productData
@@ -21,7 +22,7 @@ const getShopifyProduct = async () => {
         console.log('Product Details:', response.status);
         productData = response.data
     } catch (error) {
-    console.error('Error creating product:', error.response ? error.response.data : error.message);
+    console.error('Error getting product:', error.response ? error.response.data : error.message);
   }
 
     try {
