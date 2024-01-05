@@ -30,8 +30,8 @@ const getShopifyProduct = async () => {
             `https://${shopifyStoreUrl}/admin/api/2023-10/products.json`,productData,
             {
                 headers: {
-                'Content-Type': 'application/json',
-                'X-Shopify-Access-Token':accessToken,
+                    'Content-Type': 'application/json',
+                    'X-Shopify-Access-Token':accessToken,
                 },
             }
         );
