@@ -7,7 +7,7 @@ const shopifyStoreUrl = process.env.SHOPIFY_STORE_URL
 
 const accessToken = process.env.SHOPIFY_ACCESS_TOKEN
 
-const getShopifyProduct = async () => {
+const getShopifyProduct = async (req,res,next) => {
     let productData
     try {
         const response = await axios.get(
@@ -23,6 +23,7 @@ const getShopifyProduct = async () => {
         productData = response.data
     } catch (error) {
     console.error('Error getting product:', error.response ? error.response.data : error.message);
+    next(error)
   }
 
     try {
@@ -39,7 +40,10 @@ const getShopifyProduct = async () => {
         console.log('Product created:', response.status);
     } catch (error) {
         console.error('Error creating product:', error.response ? error.response.data : error.message);
+        next(error)
     }
+
+    res.status(200).send({"message":"Response success!!"})
 }
 
 
