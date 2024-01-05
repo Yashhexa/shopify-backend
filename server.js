@@ -5,7 +5,7 @@ const cors = require('cors')
 const errorHandler = require('./middleware/errorHandler.js');
 
 
-const dotenv = require("dotenv").config({ path: `.env.${process.env.NODE_ENV}` });
+const dotenv = require("dotenv").config({ path: `.env.${process.env.NODE_ENV == "local"? "local": "production"}` });
 
 const app = express();
 const path = require("path");
@@ -31,4 +31,5 @@ app.use(errorHandler);
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
+    console.log(process.env.NODE_ENV,"env---");
 });
