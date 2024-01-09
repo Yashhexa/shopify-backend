@@ -15,7 +15,7 @@ app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
   });
-const port = 4001;
+const port = 4002;
 
 const corsOptions = {
     origin: '*'
