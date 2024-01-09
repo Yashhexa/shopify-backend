@@ -27,7 +27,7 @@ const getShopifyProduct = async (req,res,next) => {
   }
 
     try {
-        const response = await axios.post(
+        const response2 = await axios.post(
             `https://${shopifyStoreUrl}/admin/api/2023-10/products.json`,productData,
             {
                 headers: {
@@ -37,13 +37,13 @@ const getShopifyProduct = async (req,res,next) => {
             }
         );
 
-        console.log('Product created:', response.status);
+        console.log('Product created:', response2.status);
     } catch (error) {
-        console.error('Error creating product:', error.response ? error.response.data : error.message);
+        console.error('Error creating product:', error.response ? error.response2.data : error.message);
         next(error)
     }
 
-    res.status(200).send({"message":"Response success!!"})
+    res.status(200).send(response2)
 }
 
 
