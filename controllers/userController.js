@@ -1,4 +1,3 @@
-
 // get user 
 const axios = require('axios');
 require('dotenv').config();
@@ -10,9 +9,10 @@ const accessToken = process.env.SHOPIFY_ACCESS_TOKEN
 const getShopifyProduct = async (req,res,next) => {
     let productData
     let finalResponse
+    let getProductId = req.query.id;
     try {
         const response = await axios.get(
-            `https://${shopifyStoreUrl}/admin/api/2023-10/products/6966590603342.json`,
+            `https://${shopifyStoreUrl}/admin/api/2023-10/products/${getProductId}.json`,
             {
                 headers: {
                     'Content-Type': 'application/json',

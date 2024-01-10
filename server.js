@@ -25,7 +25,7 @@ app.use(cors(corsOptions))
 
 app.use(express.json());
 
-app.use("/api/product-create", require("./routes/userRoutes"));
+app.use(`/api/product-create/`, require("./routes/userRoutes"));
 
 app.use(errorHandler);
 

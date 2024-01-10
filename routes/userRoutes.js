@@ -1,8 +1,6 @@
 
 const express = require("express");
-const { 
-    getShopifyProduct
-} = require("../controllers/userController");
+const { getShopifyProduct } = require("../controllers/userController");
 
 
 const { authenticateToken } = require("../middleware/validateToken.js");
